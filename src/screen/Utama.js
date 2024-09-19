@@ -1,85 +1,121 @@
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react'
+import { template } from '@babel/core'
 
-import { Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View, KeyboardAvoidingView, Platform, Button } from 'react-native';
-import React from 'react';
-
-const Utama = ({ navigation }) => (
-  // <KeyboardAvoidingView
-  //   behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-  //   style={styles.container}>
-    <ImageBackground source={require('../assets/Bckglogin.png')} resizeMode='cover' style={styles.bgr}>
-      {/* <View style={styles.backButtonContainer}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={require('../assets/back-arrow.png')} style={styles.back} />
+const Utama = ({navigation}) => {
+  return (
+    <View style={styles.container}>
+    
+      <Image source={{uri:'https://ik.imagekit.io/pashouses/pandu/pages/wp-content/uploads/2023/07/DSC01847-scaled.jpg'}} style={styles.image}/>
+      <Image source={require('../assets/hai.png')} style={styles.image1}/>
+        <View style={styles.welcome}>
+          <Text style={styles.Text}>Welcome To </Text>
+          <Text style={styles.Text1}>Ruang Berbenah Diri</Text>
+        </View>
+        <ScrollView>
+        <TouchableOpacity activeOpacity={0.7} onPress={()=>navigation.navigate('Consultation')}>
+        <View style={styles.options}>
+            <Image source={{uri:'https://d3p0bla3numw14.cloudfront.net/news-content/img/2020/12/29103401/Furniture-Ruang-Tamu-3.jpg'}} style={styles.image2}/>
+            <View style={styles.bagian_text}>
+            <Text style={styles.Text2}>Consultation Space</Text>
+            <Text style={styles.Text3}>Tempat konsultasi permasalahan </Text>
+            <Text style={styles.Text3}>dalam kegiatan sehari-hari.</Text>
+            
+            </View>
+        </View>
         </TouchableOpacity>
-      </View>
-      <View style={styles.titleContainer}>
-        <Text style={styles.Text}></Text>
-      </View>
-      <View style={styles.srch}>
-        <TextInput style={styles.input} placeholder="email" />
-        <TextInput style={styles.pass} placeholder="password" />
-      </View>
-      <View style={{ bottom: 10, padding: 10, flex: 1, justifyContent: 'flex-end' }}>
-        <TouchableOpacity>
-        <Button title='login' onPress={() => navigation.navigate('Utama')}/>
+        <TouchableOpacity activeOpacity={0.7} onPress={()=>navigation.navigate('Psikotes')}>
+        <View style={styles.options}>
+            <Image source={{uri:'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/newscms/2018_12/2369266/180320-workplace-stress-al-1233.jpg'}} style={styles.image2}/>
+            <View style={styles.bagian_text}>
+            <Text style={styles.Text2}>Psikotes Dan Diagnosa</Text>
+            <Text style={styles.Text3}>Tempat penegakan diagnosa</Text>
+            <Text style={styles.Text3}>maupun psikotes dengan Ahli.</Text>
+            
+            </View>
+        </View>
         </TouchableOpacity>
-      </View> */}
-    </ImageBackground>
-  // </KeyboardAvoidingView>
-)
+        <TouchableOpacity activeOpacity={0.7} onPress={()=>navigation.navigate('Ruang')}>
+        <View style={styles.options}>
+            <Image source={{uri:'https://sman12berau.sch.id/wp-content/uploads/2023/01/BIMBINGAN-KONSELING.png'}} style={styles.image2}/>
+            <View style={styles.bagian_text}>
+            <Text style={styles.Text2}>Ruang Berbenah Diri</Text>
+            <Text style={styles.Text3}>Tempat persiapan dan perbaikan diri </Text>
+            <Text style={styles.Text3}>dengan kelas khusus yang diadakan</Text>
+            <Text style={styles.Text3}>secara terjadwal.</Text>
+            </View>
+        </View>
+        </TouchableOpacity>
+        
+        </ScrollView>
+    </View>
+  )
+}
 
-export default Utama;
+export default Utama
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'grey',
+  container:{
+    flex:1
   },
-  Text: {
-    color: 'black',
-    fontSize: 40,
-    fontWeight: 'bold',
+  image:{
+    width:'100%',
+    height:450,
   },
-  bgr: {
-    flex: 1,
-    padding: 10,
-    justifyContent:'center',
+  Text:{
+    fontSize:25,
+    fontFamily:'Comfortaa-Regular',
+    color:'black',
+    fontWeight:'bold'
   },
-  backButtonContainer: {
-    marginTop: 15
+  Text1:{
+    fontSize:15,
+    fontFamily:'Comfortaa-Regular',
+    color:'black',
+    fontWeight:'bold'
   },
-  back: {
-    width: 40,
-    height: 40,
+  welcome:{
+    marginTop:-70,
+    marginLeft:5
   },
-  input: {
-    color: 'black',
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 5,
-    width: '100%',
-    height: 50,
-    paddingHorizontal: 15,
+  image1:{
+    width:70,
+    height:70,
+    zIndex:99,
+    position:'absolute',
+    bottom:400,
+    marginLeft:5
   },
-  srch: {
-    width: '80%',
-    height: 90,
-    alignSelf: 'center', 
+  image2:{
+    width:100,
+    height:100,
+    borderRadius:10
+  },
+  options:{
+    marginTop:10,
+    marginLeft:20,
+    alignItems:'center',
+    // justifyContent:'center',
+    width:350,
+    height:100,
+    backgroundColor:'white',
+    borderRadius:10,
+    elevation:5,
+    flexDirection:'row'
+  },
+  Text2:{
+    fontFamily:'Comfortaa-Regular',
+    color:'black',
+    fontWeight:'bold'
+  },
+  bagian_text:{
     flexDirection:'column',
-    marginTop:120
+    marginLeft:10
   },
-  titleContainer: {
-    padding: 10,
-    marginTop:25
-  }, 
-  pass:{
-    color: 'black',
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 5,
-    width: '100%',
-    height: 50,
-    paddingHorizontal: 15,
-    marginTop:30,
-  }
-});
+  Text3:{
+    fontFamily:'Comfortaa-Regular',
+    color:'black',
+    fontSize:12,
+    // fontWeight:'bold'
+  },
+})

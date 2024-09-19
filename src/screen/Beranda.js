@@ -1,6 +1,8 @@
+import { template } from '@babel/core';
 import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
 import {Text, View, Image, StyleSheet,ImageBackground,StatusBar,TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 // import Header from './component/Header';
 
 const Beranda = ({navigation}) => {
@@ -10,12 +12,13 @@ const Beranda = ({navigation}) => {
   {/* <Header title='Ruberi'/> */}
   
   <ImageBackground source={require('../assets/Search.png')} resizeMode="cover" style={styles.image}>
- 
+ <Image source={require('../assets/hai.png')} style={{width:190,height:190,marginTop:-300,marginLeft:100}}/>
   </ImageBackground>
+  
   <View style={styles.beri}>
   <TouchableOpacity style={styles.klik} onPress={() => navigation.navigate('Login')}>
     <View style={styles.lapisan}>
-      <Text style={{color:'black',width:80,height:30,marginLeft:40,marginTop:10}}>Register</Text>
+      <Text style={styles.Text}>Register</Text>
     </View>
   </TouchableOpacity>
   <TouchableOpacity style={styles.klik2} onPress={() => navigation.navigate('Register')}>
@@ -53,6 +56,7 @@ const styles = StyleSheet.create({
     borderRadius:7,
     marginLeft:40,
     marginRight:20,
+    elevation:5
     
   },
   klik2:{
@@ -69,6 +73,13 @@ const styles = StyleSheet.create({
     borderRadius:7,
     marginLeft:1.4,
     marginTop:1.2
+  },
+  Text:{
+    color:'black',
+    width:80,
+    height:30,
+    marginLeft:40,
+    marginTop:10
   }
 
 });
